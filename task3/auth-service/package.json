@@ -1,0 +1,48 @@
+{
+    "name": "auth-service",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "dev": "tsx watch src/server.ts",
+        "build": "tsc",
+        "start": "node dist/server.js",
+        "type-check": "tsc --noEmit",
+        "db:migrate": "tsx node_modules/sequelize-cli/lib/sequelize db:migrate",
+        "db:migrate:undo": "tsx node_modules/sequelize-cli/lib/sequelize db:migrate:undo",
+        "db:migrate:undo:all": "tsx node_modules/sequelize-cli/lib/sequelize db:migrate:undo:all",
+        "db:migrate:status": "tsx node_modules/sequelize-cli/lib/sequelize db:migrate:status",
+        "db:migration:generate": "tsx node_modules/sequelize-cli/lib/sequelize migration:generate --name",
+        "db:seed": "tsx node_modules/sequelize-cli/lib/sequelize db:seed:all"
+    },
+    "keywords": [],
+    "author": "Alexey N Fokin",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.6",
+        "dotenv": "^17.4.2",
+        "express": "^5.2.1",
+        "express-validator": "^7.3.2",
+        "jsonwebtoken": "^9.0.3",
+        "pg": "^8.23.0",
+        "sequelize": "^6.37.8",
+        "tsx": "^4.23.13",
+        "uuid": "^14.0.2"
+    },
+    "devDependencies": {
+        "@types/cookie-parser": "^1.4.10",
+        "@types/cors": "^2.8.19",
+        "@types/express": "^5.0.6",
+        "@types/node": "^26.4.1",
+        "@types/pg": "^8.23.1",
+        "eslint": "=8.22.0",
+        "eslint-config-airbnb-base": "^15.0.0",
+        "eslint-config-prettier": "^8.10.2",
+        "eslint-plugin-import": "^2.27.5",
+        "nodemon": "^3.1.14",
+        "prettier": "^2.8.8",
+        "sequelize-cli": "^6.6.5"
+    }
+}
