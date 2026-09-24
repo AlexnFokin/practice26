@@ -1,0 +1,48 @@
+generator client {
+    provider = "prisma-client"
+    output = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       String @id @default(cuid())
+  email    String @unique
+  name     String
+  password String          // хеш bcrypt
+  trips    Trip[]
+}
+
+model Trip {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // геопозиция
+  latitude    Float
+  longitude   Float
+  address     String?
+
+  // изображение
+  image       String?
+
+  // стоимость
+  cost        Float?
+
+  // места
+  heritage    String?
+  places      String?
+
+  // оценки 1-5
+  traffic     Int      @default(3)
+  safety      Int      @default(3)
+  crowdedness Int      @default(3)
+  vegetation  Int      @default(3)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
